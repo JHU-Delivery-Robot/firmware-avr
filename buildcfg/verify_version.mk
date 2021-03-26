@@ -1,3 +1,5 @@
+include $(CFGDIR)/defs.mk
+
 ########################
 # Version verification #
 ########################
@@ -5,6 +7,6 @@
 
 .PHONY: _check_lib_vers
 _check_lib_vers: $(CFGDIR)/verify_version.c $(LIBROOT)/buildcfg/version.h
-	@gcc -I$(PROJECT_ROOT) -o $(<:.c=.o) -c $<
+	@$(CC) -std=c11 -Wall -I$(PROJECT_ROOT) -o $(<:.c=.o) -c $<
 	@rm -f $(<:.c=.o)
 	@echo -e "\033[0;32mLibrary Version Checks Passed!\033[0m"
