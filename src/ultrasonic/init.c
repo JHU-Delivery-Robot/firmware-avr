@@ -4,5 +4,8 @@
 #include "init.h"
 
 void AppInit() {
-    // implement
+    
+    PORTB.DIR = 0x00; // Set all pins to input mode, including echoPin
+    PORTB.DIR = (1<<trigPin); // Set trigPin to output mode
+    
 }
