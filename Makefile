@@ -4,6 +4,7 @@ CFGDIR        := $(PROJECT_ROOT)/buildcfg
 HEXDIR        := $(PROJECT_ROOT)/bin
 LIBROOT       := $(PROJECT_ROOT)/vendor
 LIBCFG        := $(LIBROOT)/buildcfg
+PLATFORM      := $(shell uname -o)
 export PROJECT_ROOT
 export CFGDIR
 export HEXDIR
@@ -38,7 +39,7 @@ vendor:
 	make -C $(LIBROOT)
 
 # utility targets
-COMPILEDB_SED := s|   "avr-gcc",|   "gcc",\n   $\
+COMPILEDB_SED := s|   "avr-gcc",|   "arm-none-eabi-gcc",\n   $\
                       "-D__AVR_ATtiny816__",\n   $\
                       "-D__AVR_DEVICE_NAME__=attiny816",\n   $\
                       "-D__AVR_DEV_LIB_NAME__=tn816",|
@@ -48,7 +49,12 @@ compiledb:
 	$(MAKE) --always-make --dry-run all > build.log
 	compiledb < build.log
 	@echo "Fixing compile_commands.json"; sed -i '$(COMPILEDB_SED)' compile_commands.json
+ifeq ($(PLATFORM), Msys)
+# windows pathfix
+	@echo "Applying windows fixes to compile_commands.json";sed -i 's|/c/|/|' compile_commands.json
+endif
 	rm -f build.log
+
 .PHONY: clean
 clean:
 	rm -rf $(HEXDIR)

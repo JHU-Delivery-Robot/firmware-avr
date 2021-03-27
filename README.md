@@ -32,8 +32,7 @@ manager or installed manually from the sourcecode archives on the websites.
 6. Install the required packages using `pacman -S mingw-w64-x86_64-avr-gcc
    mingw-w64-x86_64-avr-gdb git make`
 7. Use the `MSYS / MINGW64` shell for all operations. By default it will open in
-   the `/users/[your username]` folder on your computer. Replace all invocations
-   of `make` with `mingw32-make`.
+   the `/users/[your username]` folder on your computer.
 
 ### Linux
 
