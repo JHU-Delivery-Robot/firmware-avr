@@ -2,6 +2,11 @@
  * System initialization functions implementation
  */
 #include "init.h"
+#include "pinmap.h"
+#include <avr/io.h>
+#include <avr/interrupt.h>
+#include "stdint.h"
+#include "bit_utils.h"
 
 void AppInit() {
     

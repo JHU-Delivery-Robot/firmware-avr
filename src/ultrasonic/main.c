@@ -3,6 +3,10 @@
  */
 #include "init.h"
 #include "pinmap.h"
+#include <avr/io.h>
+#include <avr/interrupt.h>
+#include "stdint.h"
+#include "bit_utils.h"
 
 volatile long Counter;
 volatile long duration, cm, inches; // Make Note
