@@ -61,14 +61,16 @@ makefile, they are recursive makefile and rely on variables exported in upper
 level makefiles.
 
 - `make all` to compile all firmware and examples
+  - Add `V=0` to target list see raw compiler commands for ease of debugging.
+    (i.e. `make V=0 all`).
 - Regular targets:
   - TBD
 - Special targets
- - `make compiledb` - to make the compilation info file for vscode and other LSP
+  - `make compiledb` - to make the compilation info file for vscode and other LSP
     supporting IDEs. Must be rerun after any makefile change to propagate the
-    changes
- - `make clean` - remove all compilation artefacts except for vendor libraries
- - `make libclean` - remove compiled vendor libs
+    changes. Add the `-w` option on Mac.
+  - `make clean` - remove all compilation artefacts except for vendor libraries
+  - `make libclean` - remove compiled vendor libs
 - Options:
   - `CONFIG=[profile]` - Applies sets of compilation flags for specific usecases.
     Valid profiles are:

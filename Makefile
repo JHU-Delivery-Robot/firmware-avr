@@ -36,7 +36,7 @@ common_deps: _check_lib_vers vendor | $(HEXDIR)
 
 .PHONY: vendor
 vendor:
-	make -C $(LIBROOT)
+	$(MAKE) -C $(LIBROOT)
 
 # utility targets
 COMPILEDB_SED := s|   "avr-gcc",|   "arm-none-eabi-gcc",\n   $\
@@ -46,7 +46,7 @@ COMPILEDB_SED := s|   "avr-gcc",|   "arm-none-eabi-gcc",\n   $\
 .PHONY: compiledb
 compiledb:
 	rm -f compile_commands.json
-	$(MAKE) --always-make --dry-run all > build.log
+	$(MAKE) -Bnkw V=0 all > build.log
 	compiledb < build.log
 	@echo "Fixing compile_commands.json"; sed -i '$(COMPILEDB_SED)' compile_commands.json
 ifeq ($(PLATFORM), Msys)

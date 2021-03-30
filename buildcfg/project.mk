@@ -25,18 +25,18 @@ all: $(BUILDIR)/$(PROJ_NAME).hex
 
 # hex target
 $(BUILDIR)/$(PROJ_NAME).hex: $(BUILDIR)/$(PROJ_NAME).elf
-	rm -f $@
-	$(OBJCOPY) -j .text -j .data -O ihex $<  $@
-	$(SIZE) --mcu=$(DEV) --format=avr $<
+	@rm -f $@
+	$(_P_HEX_$(V))$(OBJCOPY) -j .text -j .data -O ihex $<  $@
+	$(_P_SIZE_$(V))$(SIZE) --mcu=$(DEV) --format=avr $<
 	cp $@ $(HEXDIR)
 # elf target
 $(BUILDIR)/$(PROJ_NAME).elf: $(PROJ_DEPS) | $(BUILDIR)
-	$(LD.C) -o $@  $^ $(LDLIBS)
+	$(_P_LD_$(V))$(LD.C) -o $@  $^ $(LDLIBS)
 
 # object build targets (with the dep Makefiles listed as deps so that the files
 # are rebuilt if the dependency files go missing for any reason
 $(BUILDIR)/%.$(OBJ_EXT): %.$(C_EXT) $(BUILDIR)/%.$(MKDEP_EXT) | $(BUILDIR)
-	$(CC.C) -o $@ -c $<
+	$(_P_CC_$(V))$(CC.C) -o $@ -c $<
 
 
 # phony targets
