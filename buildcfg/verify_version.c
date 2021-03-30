@@ -4,8 +4,9 @@
  *
  * allow any semver between 0.1.0 and 1.0.0
  */
-#if _LIB_VENDOR_VERSION_MAJOR_ >= 0 && _LIB_VENDOR_VERSION_MAJOR_ < 1 \
-    && _LIB_VENDOR_VERSION_MINOR_ >= 1
+#if _LIB_VENDOR_VERSION_MAJOR_ == 0 \
+    && _LIB_VENDOR_VERSION_MINOR_ >= 3 \
+    && _LIB_VENDOR_VERSION_PATCH_ >= 2
 #	define _LIB_VENDOR_OKAY_
 #endif
 

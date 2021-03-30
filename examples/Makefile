@@ -1,10 +1,4 @@
-export PROJECT_ROOT
-export CFGDIR
-export HEXDIR
-export LIBROOT
-export LIBCFG
-# propagate user flags
-export CFLAGS
+include update_root.mk
 
 .PHONY: all
 all: blink

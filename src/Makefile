@@ -1,9 +1,4 @@
-export PROJECT_ROOT
-export CFGDIR
-export LIBROOT
-export LIBCFG
-# propagate user flags
-export CFLAGS
+include update_root.mk
 
 .PHONY: all
 all: ir ultrasonic

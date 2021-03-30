@@ -1,17 +1,6 @@
-# Root recursive Makefile
-PROJECT_ROOT  := $(shell pwd)
-CFGDIR        := $(PROJECT_ROOT)/buildcfg
-HEXDIR        := $(PROJECT_ROOT)/bin
-LIBROOT       := $(PROJECT_ROOT)/vendor
-LIBCFG        := $(LIBROOT)/buildcfg
-PLATFORM      := $(shell uname -o)
-export PROJECT_ROOT
-export CFGDIR
-export HEXDIR
-export LIBROOT
-export LIBCFG
-# propagate user flags
-export CFLAGS
+include buildcfg/update_root.mk
+PROJECT_ROOT  := .
+REL_ROOT      := ..
 include $(CFGDIR)/verify_version.mk
 
 

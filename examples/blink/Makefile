@@ -18,5 +18,6 @@ PROJ_OBJS := main
 ###################################################
 #            BEGIN MAKEFILE INCLUDES              #
 ###################################################
+include update_root.mk
 include $(LIBCFG)/attiny816.mk
 include $(CFGDIR)/project.mk 
