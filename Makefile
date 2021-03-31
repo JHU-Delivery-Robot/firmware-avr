@@ -21,7 +21,7 @@ examples: common_deps
 
 # dep targets
 .PHONY: common_deps
-common_deps: _check_lib_vers vendor | $(HEXDIR)
+common_deps: _check_lib_vers | $(HEXDIR)
 
 .PHONY: vendor
 vendor:
@@ -37,7 +37,7 @@ compiledb:
 	rm -f compile_commands.json
 	$(MAKE) -Bnkw V=0 all > build.log
 	compiledb < build.log
-	@echo "Fixing compile_commands.json"; sed -i '$(COMPILEDB_SED)' compile_commands.json
+	@echo "Fixing compile_commands.json"; sed -i '$(COMPILEDB_SED)' compile_commands.json; sed -i 's|/c/|/|' compile_commands.json
 ifeq ($(PLATFORM), Msys)
 # windows pathfix
 	@echo "Applying windows fixes to compile_commands.json";sed -i 's|/c/|/|' compile_commands.json
