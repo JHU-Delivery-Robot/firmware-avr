@@ -18,7 +18,7 @@ volatile uint8_t pb5Ioc;
 // }
 
 
-void ISR(PORTB_PORT_vect)
+ISR(PORTB_PORT_vect)
 {
 	if(PB5_INTERRUPT)
 	{
