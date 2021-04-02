@@ -8,10 +8,11 @@
 #include <avr/interrupt.h>
 #include "stdint.h"
 #include "bit_utils.h"
+#include "globals.h"
 
 // volatile long Counter;
-volatile long duration, cm, inches; // Make Note
-volatile uint8_t pb5Ioc;
+volatile unsigned duration;
+volatile long cm, inches; // Make Note
 // void delay (long n) {          // Delay by n milliseconds
 // 	Counter = 469 * n;
 // 	do Counter--; while (Counter != 0);
@@ -30,7 +31,6 @@ ISR(PORTB_PORT_vect)
 
 
 void loop(void) {
-
     PORTB.OUT &= ~(1<<trigPin); // Ensure clean HIGH pulse by providing short LOW pulse first
     _delay_us(5);
     PORTB.OUT |= (1<<trigPin); // Trigger Pin HIGH for 10 ms (Minimum for HC-SR04)

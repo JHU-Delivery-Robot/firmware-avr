@@ -4,6 +4,7 @@
 #ifndef _INIT_H_
 #define _INIT_H_
 
+// 1 Mhz
 #define F_CPU 1000000
 
 /**
