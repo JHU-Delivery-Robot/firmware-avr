@@ -12,11 +12,21 @@
 
 
 
-ISR(PORTB_PORT_vect)
+ISRA(PORTA_PORT_vect)
 {
-	if(PB5_INTERRUPT)
+	if(PA2_INTERRUPT)
 	{
-		pb5Ioc = 1;
-		PB5_CLEAR_INTERRUPT_FLAG;
+		paAIoc = 1;
+		PA2_CLEAR_INTERRUPT_FLAG;
+	}
+}
+
+
+ISRB(PORTA_PORT_vect)
+{
+	if(PA4_INTERRUPT)
+	{
+		paBIoc = 1;
+		PA4_CLEAR_INTERRUPT_FLAG;
 	}
 }

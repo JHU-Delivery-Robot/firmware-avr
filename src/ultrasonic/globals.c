@@ -10,4 +10,5 @@
 #include "stdint.h"
 #include "bit_utils.h"
 
-volatile uint8_t pb5Ioc;
+volatile uint8_t paAIoc;
+volatile uint8_t paBIoc;

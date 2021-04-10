@@ -23,7 +23,7 @@ void TCA0_init(void)
  /* disable waveform generatrion */
  TCA0.SINGLE.CTRLB = 0x0;
 
- /* set the period */
+ /* set the period (TOP) */
  TCA0.SINGLE.PER = PERIOD_VALUE;
 
  /* clear control register comands */

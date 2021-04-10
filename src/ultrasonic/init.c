@@ -17,7 +17,12 @@ void AppInit() {
     
     //PORTB.DIR = 0x00; // Set all pins to input mode, including echoPin
     //PORTB.DIR = (1<<trigPin); 
-	PORTB.DIRCLR = (1<<echoPin); // Set echo pin to 0 - Input
-	PORTB.DIRSET = (1<<trigPin); // Set trigPin to output mode
-	PORTB.PIN5CTRL |= PORT_ISC_RISING_gc;
+	PORTA.DIRCLR = (1<<echoPinA); // Set echo pin to 0 - Input
+	PORTA.DIRSET = (1<<trigPinA); // Set trigPin to output mode
+	PORTA_PIN2CTRL |= PORT_ISC_RISING_gc;
+
+
+	PORTA.DIRCLR = (1<<echoPinB); // Set echo pin to 0 - Input
+	PORTA.DIRSET = (1<<trigPinB); // Set trigPin to output mode
+	PORTA.PIN4CTRL |= PORT_ISC_RISING_gc;
 }
