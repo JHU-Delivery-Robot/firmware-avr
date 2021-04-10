@@ -1,14 +1,11 @@
 #include "init.h"
-#include "pinmap.h"
 #include <avr/io.h>
-#include <util/delay.h>
-#include <avr/interrupt.h>
 #include "stdint.h"
 #include "bit_utils.h"
 #include "globals.h"
+#include <avr/interrupt.h>
+#include "timercontrol.h"
 
-#define PERIOD_VALUE (0xFFFF) // Set Top to (65,535)
-#define PRE_SCALER TCA_SINGLE_CLKSEL_DIV256_gc
 
 
 void TCA0_init(void)
@@ -16,6 +13,9 @@ void TCA0_init(void)
 
  /* Set TCA in Normal Mode (CTRLD.SPLITM=0) */
  TCA0.SINGLE.CTRLD = 0;
+
+ /* set clock count direction to up */
+ TCA0.SINGLE.CTRLESET |= TCA_SINGLE_DIR_UP_gc;
 
  /* disable event counting */
  TCA0.SINGLE.EVCTRL &= ~(TCA_SINGLE_CNTEI_bm);
@@ -57,21 +57,20 @@ void TCA0_Reset() {
  /* force reset */
  TCA0.SINGLE.CTRLESET = TCA_SINGLE_CMD_RESTART_gc;
  
- /* set clock count direction to up */
- TCA0.SINGLE.CTRLESET |= TCA_SINGLE_DIR_UP_gc;
+ 
 
 }
 
-unsigned short TCA0_Get() {
+unsigned short TCA0_GetCount() {
     
  /* interrupts may affect reading cycle of 16-bit registers, disable */
  cli();
  
  /* get time from counter register */
- unsigned short time = TCA0.SINGLE.CNT;
+ unsigned short count = TCA0.SINGLE.CNT;
  
  /* re-enable interrupts */
  sei();
  
- return time;
+ return count;
 }

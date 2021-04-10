@@ -4,7 +4,6 @@
 #ifndef _GLOBALS_H_
 #define _GLOBALS_H_
 
-
 extern volatile uint8_t pb5Ioc;
 
 

@@ -4,65 +4,66 @@
 #ifndef _TIMERCONTROL_H_
 #define _TIMERCONTROL_H_
 
+// 20 Mhz
+#define F_CPU 20000000
+#define PERIOD_VALUE (0xFFFF) // Set Top to (65,535)
+#define PRE_SCALER TCA_SINGLE_CLKSEL_DIV256_gc // Set Prescaler to 1/256 Source Clock
+#define Int_Freq ( 256 / F_CPU )
 
 /**
  * Prereqs:
- *   [List of prereqs usch as hardware initialization/assumed state. None if N/A]
+ *   [None]
  * Side Effects:
- *   [List of sideffects that this function may cause (i.e. global var
- *    modifications. None if N/A]
- * [Short description]
- * @param [argument description if applicable, one line per arg]
- * @return [return descirption if applicable]
+ *   [None]
+ * Initializes [TCA0 - normal mode, count up, disable events, disable waveform generation
+ * , set period (TOP), clear control register, set prescaler] and STARTS timer.
+ * @param 
+ * @return Void
  */
 void TCA0_init();
 
 /**
  * Prereqs:
- *   [List of prereqs usch as hardware initialization/assumed state. None if N/A]
+ *   [None]
  * Side Effects:
- *   [List of sideffects that this function may cause (i.e. global var
- *    modifications. None if N/A]
- * [Short description]
- * @param [argument description if applicable, one line per arg]
- * @return [return descirption if applicable]
+ *   [None]
+ * Sets timer TCA enable bit 1, effectively starting the timer/counter.
+ * @param 
+ * @return Void
  */
 void TCA0_Start();
 
 /**
  * Prereqs:
- *   [List of prereqs usch as hardware initialization/assumed state. None if N/A]
+ *   [None]
  * Side Effects:
- *   [List of sideffects that this function may cause (i.e. global var
- *    modifications. None if N/A]
- * [Short description]
- * @param [argument description if applicable, one line per arg]
- * @return [return descirption if applicable]
+ *   [None]
+ * Sets timer TCA enable bit 0, effectively stopping the timer/counter.
+ * @param 
+ * @return Void
  */
 void TCA0_Stop();
 
 /**
  * Prereqs:
- *   [List of prereqs usch as hardware initialization/assumed state. None if N/A]
+ *   [None]
  * Side Effects:
- *   [List of sideffects that this function may cause (i.e. global var
- *    modifications. None if N/A]
- * [Short description]
- * @param [argument description if applicable, one line per arg]
- * @return [return descirption if applicable]
+ *   [None]
+ * Clock is stopped. Timer registers are set to their intitial (reset) values.
+ * @param 
+ * @return Void
  */
 void TCA0_Reset();
 
 /**
  * Prereqs:
- *   [List of prereqs usch as hardware initialization/assumed state. None if N/A]
+ *   [None]
  * Side Effects:
- *   [List of sideffects that this function may cause (i.e. global var
- *    modifications. None if N/A]
- * [Short description]
- * @param [argument description if applicable, one line per arg]
- * @return [return descirption if applicable]
+ *   [temporarily disables interrupts while reading]
+ * Timer clock register values are read.
+ * @param 
+ * @return Count - The current clock count [0,PERIOD_VALUE (TOP)]. 
  */
-void TCA0_Get();
+unsigned short TCA0_GetCount();
 
 #endif /* _TIMERCONTROL_H_ */

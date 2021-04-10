@@ -12,9 +12,8 @@
 
 void AppInit() {
 
-	// Initialize Counter
+	/* prep and start timer */
 	TCA0_init();
-	// Start Counter
     
     //PORTB.DIR = 0x00; // Set all pins to input mode, including echoPin
     //PORTB.DIR = (1<<trigPin); 
