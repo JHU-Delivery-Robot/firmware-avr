@@ -30,6 +30,7 @@ ISR(PORTB_PORT_vect)
 
 
 
+
 void loop(void) {
     PORTB.OUT &= ~(1<<trigPin); // Ensure clean HIGH pulse by providing short LOW pulse first
     _delay_us(5);

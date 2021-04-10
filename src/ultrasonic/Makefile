@@ -13,7 +13,7 @@ vpath %.c .
 PROJ_NAME := ultrasonic
 # Project deps
 # add all object dependencies here without the .o extension
-PROJ_OBJS := main globals handlers init
+PROJ_OBJS := main globals handlers init timercontrol
 
 ###################################################
 #            BEGIN MAKEFILE INCLUDES              #
