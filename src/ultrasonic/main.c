@@ -65,6 +65,9 @@ void loop(void) {
 	float DistanceB = getDistanceB(); // in cm
 
 
+	//PORTB.OUT = (short) DistanceA;
+
+
 }
 
 int main(void) {

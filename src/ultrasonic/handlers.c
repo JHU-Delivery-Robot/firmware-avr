@@ -12,21 +12,19 @@
 
 
 
-ISRA(PORTA_PORT_vect)
+ISR(PORTA_PORT_vect)
 {
-	if(PA2_INTERRUPT)
+	if(PORTA.INTFLAGS & PIN2_bm)
 	{
 		paAIoc = 1;
-		PA2_CLEAR_INTERRUPT_FLAG;
+		_CLR_BIT(PORTA.INTFLAGS, PIN2_bp);
 	}
-}
 
-
-ISRB(PORTA_PORT_vect)
-{
-	if(PA4_INTERRUPT)
+	if(PORTA.INTFLAGS & PIN4_bm)
 	{
 		paBIoc = 1;
-		PA4_CLEAR_INTERRUPT_FLAG;
+		_CLR_BIT(PORTA.INTFLAGS, PIN4_bp);
+		
 	}
 }
+
