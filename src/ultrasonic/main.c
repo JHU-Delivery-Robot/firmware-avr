@@ -19,14 +19,14 @@ float getDistance(int trigPin, int frequency, uint8_t flag) {
      _delay_us(10);
     PORTB.OUT &= ~(1<<trigPin); // Trigger Pin LOW
 	
-	unsigned short ClockStart = TCA0_GetCount(); // Get counter count as pulse is sent
+	uint16_t ClockStart = TCA0_GetCount(); // Get counter count as pulse is sent
 	
 	while (!flag) {} // Wait for pb5Ioc to go High
 
-	unsigned short ClockEnd = TCA0_GetCount();
+	uint16_t ClockEnd = TCA0_GetCount();
 
 	// Convert the time into a distance
-	float cm= (((ClockEnd-ClockStart)*frequency) / 2) / 29.1;     // Divide by 29.1 or multiply by 0.0343
+	float cm= (((ClockEnd-ClockStart)*frequency) / 2) * 0.0343;     // Divide by 29.1 or multiply by 0.0343
 
 	/* Reset Interrupt Flag */
 	flag = 0;

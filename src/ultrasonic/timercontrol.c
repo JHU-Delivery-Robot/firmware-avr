@@ -61,13 +61,13 @@ void TCA0_Reset() {
 
 }
 
-unsigned short TCA0_GetCount() {
+uint16_t TCA0_GetCount() {
     
  /* interrupts may affect reading cycle of 16-bit registers, disable */
  cli();
  
  /* get time from counter register */
- unsigned short count = TCA0.SINGLE.CNT;
+ uint16_t count = TCA0.SINGLE.CNT;
  
  /* re-enable interrupts */
  sei();

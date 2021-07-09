@@ -64,6 +64,6 @@ void TCA0_Reset();
  * @param 
  * @return Count - The current clock count [0,PERIOD_VALUE (TOP)]. 
  */
-unsigned short TCA0_GetCount();
+uint16_t  TCA0_GetCount();
 
 #endif /* _TIMERCONTROL_H_ */
