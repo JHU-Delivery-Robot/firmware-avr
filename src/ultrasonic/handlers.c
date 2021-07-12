@@ -10,10 +10,8 @@
 #include "bit_utils.h"
 #include "globals.h"
 
+ISR(PORTA_PORT_vect) {
 
-
-ISR(PORTA_PORT_vect)
-{
 	if(PORTA.INTFLAGS & PIN2_bm)
 	{
 		paAIoc = 1;
@@ -27,4 +25,3 @@ ISR(PORTA_PORT_vect)
 		
 	}
 }
-
