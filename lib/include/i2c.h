@@ -10,7 +10,7 @@
 
 /* 
  * The design of this interface specification was inspired by 
- * David Johnson-Davies I2C interface for various ATTiny microcontrollers: 
+ * David Johnson-Davies's I2C interface for various ATTiny microcontrollers: 
  * http://www.technoblogy.com/show?2QYB  
  * 
  */
