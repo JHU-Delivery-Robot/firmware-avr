@@ -1,3 +1,21 @@
+/*
+ *
+ * JHU Deliverbot Sensors Group
+ * AVR general firmware libraries
+ * ATTiny816 I2C - header file
+ *
+ * @avnoks (Github) 
+ * 
+ */
+
+/* 
+ * The design of this interface specification was inspired by 
+ * David Johnson-Davies I2C interface for various ATTiny microcontrollers: 
+ * http://www.technoblogy.com/show?2QYB  
+ * 
+ */
+
+
 #include <stdint.h>
 #include <stdbool.h>
 
