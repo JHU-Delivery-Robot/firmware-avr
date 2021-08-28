@@ -75,7 +75,7 @@
 #include "bit_utils.h"
 #define BAUD_RATE 9600
 
-#define UROUND(x) ((2UL*(x)+1)/2)
+// #define UROUND(x) ((2UL*(x)+1)/2)
 #define USART0_BAUD_RATE(BAUD_RATE) ((float)(F_CPU * 64 / (16 * (float)BAUD_RATE)) + 0.5)
 
 // Set up USART0 in asynchronous mode.

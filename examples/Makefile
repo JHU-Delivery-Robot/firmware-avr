@@ -1,7 +1,7 @@
 include update_root.mk
 
 .PHONY: all
-all: blink usart
+all: blink usart usartSync
 
 .PHONY: blink
 blink:
@@ -9,6 +9,10 @@ blink:
 
 .PHONY: usart
 usart:
+	$(MAKE) -C $@
+
+.PHONY: usartSync
+usartSync:
 	$(MAKE) -C $@
 
 .PHONY: clean compiledb
