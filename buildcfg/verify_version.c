@@ -6,7 +6,7 @@
  */
 #if _LIB_VENDOR_VERSION_MAJOR_ == 0 \
     && _LIB_VENDOR_VERSION_MINOR_ >= 3 \
-    && _LIB_VENDOR_VERSION_PATCH_ >= 2
+    && _LIB_VENDOR_VERSION_PATCH_ >= 0
 #	define _LIB_VENDOR_OKAY_
 #endif
 

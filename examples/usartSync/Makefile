@@ -10,10 +10,10 @@ LDLIBS_END +=
 # Add all subdirectories here separated by the : char
 vpath %.c .
 # Project name (sets outputted bins)
-PROJ_NAME := ultrasonic
+PROJ_NAME := usartSync
 # Project deps
 # add all object dependencies here without the .o extension
-PROJ_OBJS := main globals handlers init timercontrol
+PROJ_OBJS := main
 
 ###################################################
 #            BEGIN MAKEFILE INCLUDES              #

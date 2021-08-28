@@ -1,8 +1,8 @@
 /* Arduino Uno Blink sketch for use with the empty core */
-
+#define F_CPU 3333333
 #include <avr/io.h>
 #include <avr/interrupt.h>
-
+#include <util/delay.h>
 #include "stdint.h"
 #include "bit_utils.h"
 
@@ -35,9 +35,9 @@ void delay (long n) {          // Delay by n milliseconds
 // The loop routine runs over and over again forever:
 void loop() {
     PORTB.OUT = PORTB.OUT | 1<<led;      // Take PB5 high
-    delay(1000);                 // Wait for a second
+    _delay_ms(500);              // Wait for a second
     PORTB.OUT = PORTB.OUT & ~(1<<led);   // Take PB5 low
-    delay(1000);                 // Wait for a second
+    _delay_ms(500);                 // Wait for a second
 }
 
 // We need main()
