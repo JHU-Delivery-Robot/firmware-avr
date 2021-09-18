@@ -23,6 +23,12 @@
 #define I2C_WRITE 0
 #define I2C_READ -1
 
+#define I2C_INIT_SCL() PORTB.DIRCLR = PIN0_bm;  \
+  PORTB.PIN0CTL |= 1<<3;        /* Enable pullup resistor */
+#define I2C_INIT_SDA() PORTB.DIRCLR = PIN1_bm;  \
+  PORTB.PIN1CTL |= 1<<3;        /* Enable pullup resistor */
+
+
 typedef uint16_t i2c_size_t;
 
 /* **********************************************************************
