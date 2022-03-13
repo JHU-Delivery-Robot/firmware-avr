@@ -2,6 +2,9 @@
 #define _DRV10983_H_
 
 
+//chip address
+#define DRV10983 0x52
+
 // R/W
 #define SpeedCtrl1 0x00
 #define SpeedCtrl2 0x01
