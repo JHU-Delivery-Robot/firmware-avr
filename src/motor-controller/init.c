@@ -22,14 +22,14 @@ void AppInit() {
     uint8_t spdctrl2_data = 0;
     spdctrl2_data |= (1<<0); // set override bit to 1 to disable speed pin
     i2c_write(spdctrl2_data); //write data byte
-    i2c_stop(); //stop transaction
+    
 
     //clear the rest of the motor command bits
     i2c_restart(DRV10983,0);
     i2c_write(SpeedCtrl1); //write address of register
     uint8_t spdctrl1_data = 0; 
     i2c_write(spdctrl1_data); 
-    i2c_stop();
+    i2c_stop(); //stop transaction
 
 
     /*

@@ -10,18 +10,18 @@
  * @param
  * @return Void
  */
-void convert_motor_command() {}
+uint16_t convert_motor_command(uint8_t speed) {}
 
 /**
  * Prereqs:
- *   [None]
+ *   speed_cmd is 
  * Side Effects:
- *   [None]
+ *   only the last 9 bits of speed_cmd will be used
  * Updates the motor controller speed from motor command
- * @param
+ * @param speed_cmd
  * @return Void
  */
-void update_motor_speed() {}
+void update_motor_speed(uint16_t speed_cmd) {}
 
 
 /**
@@ -29,7 +29,7 @@ void update_motor_speed() {}
  *   [None]
  * Side Effects:
  *   [None]
- * Reads motor state params and sends out details
+ * Reads motor state params and sends out details to the rest of the robot
  * @param
  * @return Void
  */
